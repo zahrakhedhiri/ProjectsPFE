@@ -1,0 +1,13 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+layout:
+    path:     /layout
+    defaults: { _controller: AdminBundle:Default:layout }
+index:
+    path:     /indexx
+    defaults: { _controller: AdminBundle:Default:indexxtemplate }
+widgets:
+    path:     /widgets
+    defaults: { _controller: AdminBundle:Default:widgets }
+
