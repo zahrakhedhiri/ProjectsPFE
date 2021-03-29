@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@AdminBundle/Resources/config/services.yml" }
+    - { resource: "@PublicBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -10,7 +12,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -30,7 +32,8 @@ framework:
     assets: ~
     php_errors:
         log: true
-
+    templating:
+        engines: [ "twig" ]
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -69,3 +72,12 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+# FOSUser
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "khedhirizahra22@gmail.com"
+        sender_name: "khedhirizahra22@gmail.com"
